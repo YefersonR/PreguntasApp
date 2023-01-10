@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row" style="width:100%">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center" style="padding: 20px">
+                <h3>register</h3>
+                <app-loading *ngIf="loading"></app-loading>
+                <form [formGroup] = "register" (ngSubmit)="registerUser()" style="padding: 10px ;">
+                    <div class="mb-3" style="text-align:start ;">
+                        <input type="text" formControlName="usuario" class="form-control" placeholder="Usuario">
+                        <span class="text-danger ms-2" 
+                            *ngIf="register.get('usuario')?.errors?.['required'] && register.get('usuario')?.touched">
+                            El usuario <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3" style="text-align:start ;">
+                        <input type="password" formControlName="password" class="form-control" placeholder="Contrasena">
+                        <span class="text-danger ms-2"
+                        *ngIf="register.get('password')?.errors?.['required'] && register.get('password')?.touched">
+                            La contrasena <strong>es requerido</strong>
+                        </span>
+                        <span class="text-danger ms-2"
+                        *ngIf="register.get('password')?.errors?.['minlength'] && register.get('password')?.touched">
+                            La contrasena <strong>debe tener al menos 4 caracteres</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3" style="text-align:start ;">
+                        <input type="password" formControlName="confirmPassword" class="form-control" placeholder="Repetir contrasena">
+                        <span class="text-danger ms-2"
+                        *ngIf="register.errors?.['notSame'] && register.get('confirmPassword')?.touched">
+
+                            Las contrasenas <strong>deben ser iguales</strong>
+                        </span>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary me-2 btn-register" type="submit">Aceptar</button>
+                        <button class="btn btn-secondary" routerLink="/home/login">Volver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

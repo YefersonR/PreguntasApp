@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-lg-6 offset-lg-3">
+        <div class="text-center">
+            <h3>Datos del cuestionario</h3>
+            <br>
+            <form [formGroup]="datosCuestionario" (ngSubmit)="pasoUno()">
+                <div class="mb-2">
+                    <input type="text" placeholder="Ingrese titulo del cuestionario" class="form-control" formControlName="titulo">
+                    <span class="text-danger" *ngIf="datosCuestionario.get('titulo')?.errors?.['required'] && datosCuestionario.get('titulo')?.touched">El titulo del cuestionario es <strong>requerido</strong></span>
+                </div>
+                <div class="mb-2">
+                    <textarea rows="3" placeholder="Ingrese una descripcion del cuestionario" class="form-control" formControlName="descripcion"></textarea>
+                    <span class="text-danger" *ngIf="datosCuestionario.get('descripcion')?.errors?.['required'] && datosCuestionario.get('descripcion')?.touched">La descripcion del cuestionario es <strong>requerido</strong></span>
+                </div>
+                <button [disabled]="datosCuestionario.invalid" class="btn btn-success float-end">Siguiente</button>
+            </form>
+        </div>
+    </div>
+
+</div>

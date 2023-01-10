@@ -1,0 +1,12 @@
+.btnFinalizar{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    padding: 15px;
+    font-size: 1.2rem;
+    width: 300px;
+}
+.list-group-item{
+    padding: .20rem;
+    padding-left: 20px;
+}

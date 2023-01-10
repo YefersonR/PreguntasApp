@@ -1,0 +1,22 @@
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-ing
+{
+    margin-bottom: 20px;
+    margin-top: 8px;
+    background-color: #f05f44;
+    border-color: #f05f44;
+}
+.row{
+    margin-top: 20px;
+    margin-bottom: 20px ;
+}
+.card-colums{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

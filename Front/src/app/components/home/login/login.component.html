@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row" style="width:100%;">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="card text-center" style="padding:20px;">
+            <h3>Login</h3>
+            <app-loading class="m-2" *ngIf="loading"></app-loading>
+            <form [formGroup]="login" (ngSubmit)=log()>
+                <div class="mb-3" style="text-align:start">
+                    <input type="text" formControlName="usuario" class="form-control" placeholder="Usuario">
+                    <span class="text-danger ms-2"
+                        *ngIf="login.get('usuario')?.errors?.['required'] && login.get('usuario')?.touched">
+                        El usuario es <strong>requerido</strong>
+                    </span>
+                </div>
+                <div class="mb-3" style="text-align:start">
+                    <input type="password" formControlName="password" class="form-control" placeholder="Contrasena">
+                    <span class="text-danger"
+                    *ngIf="login.get('password')?.errors?.['required'] && login.get('password')?.touched">
+                        La contrasena es <strong>requerida</strong>
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary me-2 btn-login" [disabled]="login.invalid" type="submit">Aceptar</button>
+                    <button class="btn btn-secondary" routerLink="/home">Volver</button>
+                </div>
+                <div class="mb-3">
+                    <a style="color:#F05F44;cursor: pointer; text-decoration: none; " routerLink="/home/register">Crear Cuenta</a>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
